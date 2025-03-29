@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --primary-background:#F5EDE1;
+    --olive-green:#53683F;
+    --golden-yellow:#FFC24A;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.circle{
+    border-radius: 100%;
+    background-color: rgba(255, 194, 74, 0.75);
+}
+
+.triangle{
+    width: 0;
+    height: 0;
+    border-left: 210px solid transparent;
+    border-right: 210px solid transparent;
+    border-bottom: 398px solid rgba(245, 237, 225, 0.75);
+}
+
+.rectangle{
+    background-color : rgba(83, 104, 63, 0.25);
+}
+
+.container{
+    position:absolute;
+    width: 657.6886494988701px;
+    height: 638.8076073103376px;
+    top: 76.66px;
+    left: 1601.09px;
+}    
+
+.navelem{
+    font-family: 'Poppins';
+    color:#666666;
+    padding:10px;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+.navelem:hover{
+    color:var(--golden-yellow);
+    transition: 0.3s;
+}
+
