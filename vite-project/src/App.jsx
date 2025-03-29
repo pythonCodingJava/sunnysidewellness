@@ -3,34 +3,35 @@ import Navbar from "./components/Navbar";
 import ReviewCard from "./components/ReviewCard";
 import Hero from "./hero";
 import Footer from "./Footer";
+import Background from "./Background";
 
 function App() {
   const comp = () => {
     const rows = [];
-    let span = 0.3; 
+    let span = 0.3;
     for (let i = 0; i < reviews.length / 2; i++) {
-      let ran = Math.random()*2 - 1;
-      ran = Math.max(ran,-ran);
-      ran/=2;
-      ran+=0.3;
+      let ran = Math.random() * 2 - 1;
+      ran = Math.max(ran, -ran);
+      ran /= 2.5;
+      ran += 0.35;
       rows.push(
-        <div style={{display:"flex", flexDirection:"row"}}>
+        <div style={{ display: "flex", flexDirection: "row" }}>
           <ReviewCard
-          key={i}
-          name={reviews[i].name}
-          place={reviews[i].place}
-          stars={reviews[i].stars}
-          review={reviews[i].reviews}
-          width={ran}
-        />
-        <ReviewCard
-          key={i+1}
-          name={reviews[i+1].name}
-          place={reviews[i+1].place}
-          stars={reviews[i+1].stars}
-          review={reviews[i+1].reviews}
-          width={1-ran}
-        />
+            key={i}
+            name={reviews[i].name}
+            place={reviews[i].place}
+            stars={reviews[i].stars}
+            review={reviews[i].reviews}
+            width={ran}
+          />
+          <ReviewCard
+            key={i + 1}
+            name={reviews[i + 1].name}
+            place={reviews[i + 1].place}
+            stars={reviews[i + 1].stars}
+            review={reviews[i + 1].reviews}
+            width={1 - ran}
+          />
         </div>
       );
     }
@@ -112,9 +113,16 @@ function App() {
 
   return (
     <>
-      <div>
-        <img src="background.png" style={{ width: "100vw" }} alt="" />
-      </div>
+      {/* <div
+        style={{
+          backgroundImage: 'url("background.png")',
+          width: "100%",
+          height: "3594px",
+          position: "absolute",
+          backgroundSize: "100%",
+        }}
+      ></div> */}
+      <Background />
       <div
         style={{
           marginLeft: "64px",
@@ -131,7 +139,7 @@ function App() {
         <Navbar />
         <Hero />
 
-        <div style={{marginTop:"calc(0.0388*100vw)"}}>{comp()}</div>
+        <div style={{ marginTop: "calc(0.0388*100vw)" }}>{comp()}</div>
         <Footer />
       </div>
     </>
