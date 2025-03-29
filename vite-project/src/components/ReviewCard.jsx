@@ -1,6 +1,6 @@
 import React from "react";
 
-function ReviewCard({name, place, review, stars, width}) {
+function ReviewCard({name, picture, place, review, stars, width}) {
   return (
     <div
       style={{
@@ -17,7 +17,7 @@ function ReviewCard({name, place, review, stars, width}) {
     >
       <div style={{ display: "flex", flexDirection: "row" }}>
         <img
-          src="dummy.png"
+          src={picture}
           alt=""
           style={{ borderRadius: "100%", height: "95px", width: "95px" }}
         />

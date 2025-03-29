@@ -9,6 +9,10 @@ function App() {
   const comp = () => {
     const rows = [];
     let span = 0.3;
+    let index = 0;
+    if(reviews.length%2 != 0){
+      index = Math.floor(Math.random()*reviews.length/2)
+    }
     for (let i = 0; i < reviews.length / 2; i++) {
       let ran = Math.random() * 2 - 1;
       ran = Math.max(ran, -ran);
@@ -17,21 +21,33 @@ function App() {
       rows.push(
         <div style={{ display: "flex", flexDirection: "row" }}>
           <ReviewCard
-            key={i}
-            name={reviews[i].name}
-            place={reviews[i].place}
-            stars={reviews[i].stars}
-            review={reviews[i].reviews}
+            key={i+(i>index?1:0)}
+            name={reviews[i+(i>index?1:0)].name}
+            picture={reviews[i+(i>index?1:0)].picture}
+            place={reviews[i+(i>index?1:0)].place}
+            stars={reviews[i+(i>index?1:0)].stars}
+            review={reviews[i+(i>index?1:0)].reviews}
             width={ran}
           />
           <ReviewCard
             key={i + 1}
-            name={reviews[i + 1].name}
-            place={reviews[i + 1].place}
-            stars={reviews[i + 1].stars}
-            review={reviews[i + 1].reviews}
+            name={reviews[i + 1+(i>index?1:0)].name}
+            picture={reviews[i+1+(i>index?1:0)].picture}
+            place={reviews[i + 1+(i>index?1:0)].place}
+            stars={reviews[i + 1+(i>index?1:0)].stars}
+            review={reviews[i + 1+(i>index?1:0)].reviews}
             width={1 - ran}
           />
+          {i==index?
+          <ReviewCard
+            key={i + 2}
+            name={reviews[i + 2].name}
+            picture={reviews[i+2].picture}
+            place={reviews[i + 2].place}
+            stars={reviews[i + 2].stars}
+            review={reviews[i + 2].reviews}
+            width={1 - ran}
+          />:<></>}
         </div>
       );
     }
@@ -43,12 +59,14 @@ function App() {
       name: "DaGunny Rivera",
       place: "California, USA",
       stars: 5,
+      pictures:"dummy.png",
       reviews:
         "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
     },
     {
       name: "DaGunny Rivera",
       place: "California, USA",
+      pictures:"dummy.png",
       stars: 5,
       reviews:
         "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
@@ -56,6 +74,7 @@ function App() {
     {
       name: "DaGunny Rivera",
       place: "California, USA",
+      pictures:"dummy.png",
       stars: 5,
       reviews:
         "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
@@ -63,6 +82,7 @@ function App() {
     {
       name: "DaGunny Rivera",
       place: "California, USA",
+      pictures:"dummy.png",
       stars: 5,
       reviews:
         "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
@@ -70,6 +90,7 @@ function App() {
     {
       name: "DaGunny Rivera",
       place: "California, USA",
+      pictures:"dummy.png",
       stars: 5,
       reviews:
         "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
@@ -77,6 +98,7 @@ function App() {
     {
       name: "DaGunny Rivera",
       place: "California, USA",
+      pictures:"dummy.png",
       stars: 5,
       reviews:
         "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
@@ -84,6 +106,7 @@ function App() {
     {
       name: "DaGunny Rivera",
       place: "California, USA",
+      pictures:"dummy.png",
       stars: 5,
       reviews:
         "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
@@ -91,6 +114,7 @@ function App() {
     {
       name: "DaGunny Rivera",
       place: "California, USA",
+      pictures:"dummy.png",
       stars: 5,
       reviews:
         "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
@@ -98,6 +122,7 @@ function App() {
     {
       name: "DaGunny Rivera",
       place: "California, USA",
+      pictures:"dummy.png",
       stars: 5,
       reviews:
         "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
@@ -105,6 +130,15 @@ function App() {
     {
       name: "DaGunny Rivera",
       place: "California, USA",
+      pictures:"dummy.png",
+      stars: 5,
+      reviews:
+        "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
+    },
+    {
+      name: "DaGunny Rivera",
+      place: "California, USA",
+      pictures:"dummy.png",
       stars: 5,
       reviews:
         "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
@@ -113,15 +147,6 @@ function App() {
 
   return (
     <>
-      {/* <div
-        style={{
-          backgroundImage: 'url("background.png")',
-          width: "100%",
-          height: "3594px",
-          position: "absolute",
-          backgroundSize: "100%",
-        }}
-      ></div> */}
       <Background />
       <div
         style={{
