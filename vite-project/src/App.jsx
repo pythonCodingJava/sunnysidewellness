@@ -23,7 +23,7 @@ function App() {
           <ReviewCard
             key={i+(i>index?1:0)}
             name={reviews[i+(i>index?1:0)].name}
-            picture={reviews[i+(i>index?1:0)].picture}
+            picture={reviews[i+(i>index?1:0)].pictures}
             place={reviews[i+(i>index?1:0)].place}
             stars={reviews[i+(i>index?1:0)].stars}
             review={reviews[i+(i>index?1:0)].reviews}
@@ -32,7 +32,7 @@ function App() {
           <ReviewCard
             key={i + 1}
             name={reviews[i + 1+(i>index?1:0)].name}
-            picture={reviews[i+1+(i>index?1:0)].picture}
+            picture={reviews[i+1+(i>index?1:0)].pictures}
             place={reviews[i + 1+(i>index?1:0)].place}
             stars={reviews[i + 1+(i>index?1:0)].stars}
             review={reviews[i + 1+(i>index?1:0)].reviews}
@@ -42,7 +42,7 @@ function App() {
           <ReviewCard
             key={i + 2}
             name={reviews[i + 2].name}
-            picture={reviews[i+2].picture}
+            picture={reviews[i+2].pictures}
             place={reviews[i + 2].place}
             stars={reviews[i + 2].stars}
             review={reviews[i + 2].reviews}
