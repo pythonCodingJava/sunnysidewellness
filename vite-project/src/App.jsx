@@ -48,6 +48,7 @@ function App() {
             review={reviews[i + 2].reviews}
             width={1 - ran}
           />:<></>}
+          
         </div>
       );
     }
