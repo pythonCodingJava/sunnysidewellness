@@ -19,7 +19,7 @@ function App() {
       ran /= 2.5;
       ran += 0.35;
       rows.push(
-        <div style={{ display: "flex", flexDirection: "row" }}>
+        <div key={i+2000} style={{ display: "flex", flexDirection: "row" }}>
           <ReviewCard
             key={i+(i>index?1:0)}
             name={reviews[i+(i>index?1:0)].name}
@@ -30,7 +30,7 @@ function App() {
             width={ran}
           />
           <ReviewCard
-            key={i + 1}
+            key={i + 1+(i>index?1:0)}
             name={reviews[i + 1+(i>index?1:0)].name}
             picture={reviews[i+1+(i>index?1:0)].pictures}
             place={reviews[i + 1+(i>index?1:0)].place}
@@ -150,17 +150,7 @@ function App() {
     <>
       <Background />
       <div
-        style={{
-          marginLeft: "64px",
-          width: "calc(99.8% - 128px)",
-          position: "absolute",
-          top: "10px",
-          marginLeft: "64px",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
+      className="absolute top-[10px] left-[64px] w-[calc(99.8%_-_128px)] h-full flex flex-col items-center"
       >
         <Navbar />
         <Hero />

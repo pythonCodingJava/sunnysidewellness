@@ -1,94 +1,45 @@
 import React from "react";
+import { circle, rectangle, triangle } from "./styles/stylecomponents";
 
 function Background() {
-  const rightside = (left, top, right, bottom) => {
+  const rightside = (arg) => {
     return (
-      <div
-        style={{
-          position: "absolute",
-          width: "657.6886494988701px",
-          height: "638.8076073103376px",
-          top: `${top}`,
-          right: `${right}`,
-          left: `${left}`,
-          bottom: `${bottom}`,
-        }}
-      >
-        <div
-          style={{
-            height: "311.54px",
-            width: "311.54px",
-            position: "absolute",
-            top: "327.86px",
-            left: "52.71px",
-          }}
-          className="circle"
-        ></div>
-        <div
-          style={{ top: "0px", left: "1.41px", position: "absolute" }}
-          className="triangle"
-        ></div>
-        <div
-          style={{
-            height: "381.55px",
-            width: "381.55px",
-            position: "absolute",
-            left: "277.53px",
-            top: "139.31px",
-          }}
-          className="rectangle"
-        ></div>
+      <div className={`absolute w-[657.69px] h-[638.81px] ${arg}`}>
+        <div className="relative">
+          <div
+            className={`${circle} absolute w-[311.54px] h-[311.54px] top-[327.86px] left-[52.71px]`}
+          ></div>
+
+          <div className={`${triangle} absolute top-0 left-[1.41px]`}></div>
+
+          <div
+            className={`${rectangle} absolute w-[381.55px] h-[381.55px] left-[277.53px] top-[139.31px]`}
+          ></div>
+        </div>
       </div>
     );
   };
 
-  const leftside = (left, top, right, bottom) => {
+  const leftside = (arg) => {
     return (
       <div
-        style={{
-          position: "absolute",
-          width: "836px",
-          height: "812px",
-          top: `${top}`,
-          right: `${right}`,
-          left: `${left}`,
-          bottom: `${bottom}`,
-        }}
+        className={`absolute w-[836px] h-[812px] ${arg}`}
       >
-        <div
-          style={{
-            height: "311.54px",
-            width: "311.54px",
-            position: "absolute",
-            top: "416px",
-            left: "373px",
-          }}
-          className="circle"
-        ></div>
-        <div
-          style={{ top: "70px", left: "280px", position: "absolute" }}
-          className="triangle"
-        ></div>
-        <div
-          style={{
-            height: "381.55px",
-            width: "381.55px",
-            position: "absolute",
-            top: "173px",
-            right: "351px",
-          }}
-          className="rectangle"
-        ></div>
+        <div className={`${circle} absolute w-[311.54px] h-[311.54px] top-[416px] left-[373px]`}></div>
+
+        <div className={`${triangle} absolute top-[70px] left-[280px]`}></div>
+
+        <div className={`${rectangle} absolute w-[381.55px] h-[381.55px] top-[173px] right-[351px]`}></div>
       </div>
     );
   };
   return (
     <>
-      {rightside("", "69px", "-161.09px", "")}
+      {rightside("top-[69px] right-[-161px]")}
+      {leftside("left-[-304px] top-[913px]")}
+      {rightside("top-[1760px] right-[-161px]")}
+      {leftside("left-[-242px] top-[2672px]")}
 
-      {leftside("-304px", "913px", "", "")}
-      {rightside("", "1760px", "-161px", "")}
-      {leftside("-242px", "2672px", "", "")}
       <div
         style={{
           backdropFilter: "blur(7.73px)",
