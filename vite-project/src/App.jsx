@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import ReviewCard from "./components/ReviewCard";
 import Hero from "./hero";
@@ -6,10 +6,21 @@ import Footer from "./Footer";
 import Background from "./Background";
 
 function App() {
+  const [matches, setMatches] = useState(window.matchMedia("(min-width: 1470px)").matches)
+      
+      useEffect(() => {
+        window
+        .matchMedia("(min-width: 1470px)")
+        .addEventListener('change', e => {
+          console.log(e.matches);
+          setMatches(e.matches);
+        })
+      }, []);
+    
   const comp = () => {
     const rows = [];
     let span = 0.3;
-    let index = 0;
+    let index = -1;
     if(reviews.length%2 != 0){
       index = Math.floor(Math.random()*reviews.length/2)
     }
@@ -28,6 +39,7 @@ function App() {
             stars={reviews[i+(i>index?1:0)].stars}
             review={reviews[i+(i>index?1:0)].reviews}
             width={ran}
+            matches={matches}
           />
           <ReviewCard
             key={i + 1+(i>index?1:0)}
@@ -37,6 +49,7 @@ function App() {
             stars={reviews[i + 1+(i>index?1:0)].stars}
             review={reviews[i + 1+(i>index?1:0)].reviews}
             width={1 - ran}
+            matches={matches}
           />
           {i==index?
           <ReviewCard
@@ -47,6 +60,7 @@ function App() {
             stars={reviews[i + 2].stars}
             review={reviews[i + 2].reviews}
             width={1 - ran}
+            matches={matches}
           />:<></>}
           
         </div>
@@ -56,14 +70,6 @@ function App() {
   };
 
   const [reviews, setReviews] = useState([
-    {
-      name: "DaGunny Rivera",
-      place: "California, USA",
-      stars: 5,
-      pictures:"dummy.png",
-      reviews:
-        "Ive noticed a difference and highly recommend the service of this office. No long waits, office personnel are very courteous and work with you if you need assistance with schedule changes. The Doc has a way of hitting the right spots to help your wellness. I recommend their services with enthusiasm. Thank you.",
-    },
     {
       name: "DaGunny Rivera",
       place: "California, USA",
@@ -147,19 +153,21 @@ function App() {
   ]);
 
   return (
-    <>
+    <div className="relative m-0">
       <Background />
       <div
-      className="absolute top-[10px] left-[64px] w-[calc(99.8%_-_128px)] h-full flex flex-col items-center"
+      className="absolute top-[10px] left-[64px] h-full flex flex-col items-center"
+      style={{width:"calc(99.8% - 128px)"}}
       >
-        <Navbar />
+        <Navbar matches={matches} />
         <Hero />
 
         <div style={{ marginTop: "calc(0.0388*100vw)" }}>{comp()}</div>
         <Footer />
       </div>
-    </>
+    </div>
   );
 }
 
 export default App;
+ 

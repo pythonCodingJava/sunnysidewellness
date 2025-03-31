@@ -6,4 +6,4 @@ export const rectangle = "bg-[rgba(83,104,63,0.25)]";
 
 export const container = "absolute w-[657.69px] h-[638.81px] top-[76.66px] left-[1601.09px]";
 
-export const navelem = "font-[Poppins] text-[#666666] p-[10px] cursor-pointer ml-[15px] text-[20px] transition-colors duration-300 hover:text-[var(--golden-yellow)]";
+export const navelem = "font-[Poppins] text-[#666666] p-[1vw] cursor-pointer ml-[0.78125vw] text-[1.1vw] transition-colors duration-300 hover:text-[var(--golden-yellow)]";

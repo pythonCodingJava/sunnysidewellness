@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-function ReviewCard({name, picture, place, review, stars, width}) {
+function ReviewCard({name, picture, place, review, stars, width, matches}) {
   return (
     <div
-  className={`rounded-[12px] bg-white p-[61px_30px] ml-[21px] mb-[36px]`}
+  className={`rounded-[12px] bg-white p-[3.1vw_1.5vw] ml-[1vw] mb-[1.8vw]`}
     style={{width:`calc(100%*${width})`, 
     boxShadow: "0px 8px 36px rgba(0,0,0,0.25)"
     }}
@@ -12,7 +12,7 @@ function ReviewCard({name, picture, place, review, stars, width}) {
     <img
       src={picture}
       alt=""
-      className="rounded-full h-[95px] w-[95px]"
+      className="rounded-full h-[6.5vw] w-[6.5vw]"
     />
 
     <div className="flex flex-col ml-[15px]">
@@ -26,14 +26,14 @@ function ReviewCard({name, picture, place, review, stars, width}) {
           />
         ))}
       </div>
-      <a className="text-[28px] text-black p-0 font-[Poppins]">{name}</a>
-      <a className="text-[20px] font-[Poppins] text-[#666666] p-0">{place}</a>
+      <a className={`text-[${matches?"1.4vw":"20px"}] text-black p-0 font-[Poppins]`}>{name}</a>
+      <a className={`text-[${matches?"1vw":"19px"}] font-[Poppins] text-[#666666] p-0`}>{place}</a>
     </div>
   </div>
 
   <div className="mt-[15px]">
-    <a className="font-[Poppins] leading-[30px] font-medium text-[20px]">
-      <b className="text-[30px]">“</b>{review}<b className="text-[30px]">”</b>
+    <a className={`font-[Poppins] leading-[1.5vw] font-medium text-[${matches?"1.vw":"19px"}]`}>
+      <b className={`text-[${matches?"1.5vw":"28px"}]`}>“</b>{review}<b className={`text-[${matches?"1.5vw":"28px"}]`}>”</b>
     </a>
   </div>
 </div>
